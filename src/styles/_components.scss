@@ -1,0 +1,79 @@
+@use 'helpers' as *;
+
+.button {
+  @include flex-center(true);
+
+  min-height: var(--button-height);
+  padding-inline: rem(38);
+  border: rem(1) solid transparent;
+  border-radius: var(--border-radius);
+  background-color: var(--color-green);
+  color: var(--color-white);
+  font-size: rem(16);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+
+  @include hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  &--light {
+    background-color: var(--color-white-alt);
+    color: var(--color-black);
+
+    @include hover {
+      background-color: var(--color-yellow);
+      color: var(--color-black);
+    }
+  }
+
+  @include mobile {
+    width: 100%;
+    padding-inline: rem(20);
+  }
+}
+
+.section {
+  display: block;
+  padding-block: var(--section-padding-y);
+
+  &--gray {
+    background-color: var(--color-gray);
+  }
+
+  @include tablet {
+    --section-padding-y: #{rem(70)};
+  }
+
+  @include mobile {
+    --section-padding-y: #{rem(50)};
+  }
+}
+
+.eyebrow {
+  color: var(--color-yellow);
+  font-size: rem(24);
+  font-weight: 400;
+
+  @include mobile {
+    font-size: rem(18);
+  }
+}
+
+.title {
+  @include fluid-text(32, 24);
+
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.text {
+  font-size: rem(18);
+  line-height: 1.5;
+
+  @include mobile {
+    font-size: rem(16);
+  }
+}

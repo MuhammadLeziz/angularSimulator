@@ -1,0 +1,40 @@
+<div class="popular__container container">
+  <app-section-head
+    eyebrow="по версии отдыхающих"
+    heading="Популярные направления"
+    [centered]="true"
+  />
+
+  <ul class="popular__list">
+    @for (destination of destinations; track destination.title) {
+      <li class="popular__card">
+        <img
+          class="popular__image"
+          [src]="destination.image"
+          [alt]="destination.title"
+          width="380"
+          height="500"
+          loading="lazy"
+        />
+
+        <p class="popular__rating">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="m8 1.5 2 4.2 4.5.6-3.3 3.2.8 4.5L8 11.8l-4 2.2.8-4.5L1.5 6.3 6 5.7 8 1.5Z" />
+          </svg>
+          <span>{{ destination.rating }}</span>
+        </p>
+
+        <div class="popular__body">
+          <div class="popular__info">
+            <h3 class="popular__title">{{ destination.title }}</h3>
+            <p class="popular__subtitle">{{ destination.subtitle }}</p>
+          </div>
+
+          <p class="popular__price">{{ destination.price }}</p>
+        </div>
+      </li>
+    }
+  </ul>
+
+  <a class="popular__button button" href="#blog">Рейтинг направлений</a>
+</div>

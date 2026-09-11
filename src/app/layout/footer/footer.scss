@@ -1,0 +1,143 @@
+@use 'helpers' as *;
+
+:host {
+  display: block;
+  color: var(--color-white);
+}
+
+.footer {
+  &__main {
+    padding-block: #{rem(180)} #{rem(60)};
+    background-color: var(--color-green);
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 460fr) minmax(0, 360fr) minmax(0, 280fr);
+    column-gap: #{rem(40)};
+  }
+
+  &__title {
+    margin-bottom: #{rem(28)};
+    font-size: #{rem(20)};
+    font-weight: 700;
+  }
+
+  &__description {
+    max-width: #{rem(440)};
+    font-size: #{rem(14)};
+    line-height: 1.6;
+    color: rgb(255 255 255 / 85%);
+  }
+
+  &__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: #{rem(30)};
+    margin-block: #{rem(90)} #{rem(38)};
+  }
+
+  &__contact {
+    font-size: #{rem(14)};
+    text-decoration: underline;
+
+    @include hover {
+      color: var(--color-yellow);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    column-gap: #{rem(22)};
+  }
+
+  &__social {
+    @include flex-center;
+    @include square(#{rem(26)});
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include hover {
+      color: var(--color-yellow);
+    }
+  }
+
+  &__links {
+    display: grid;
+    row-gap: #{rem(16)};
+  }
+
+  &__link {
+    display: flex;
+    align-items: start;
+    column-gap: #{rem(14)};
+    font-size: #{rem(14)};
+    line-height: 1.5;
+
+    @include hover {
+      color: var(--color-yellow);
+    }
+  }
+
+  &__link-icon {
+    flex-shrink: 0;
+    width: #{rem(8)};
+    height: #{rem(12)};
+    margin-block-start: #{rem(5)};
+  }
+
+  &__bottom {
+    padding-block: #{rem(22)};
+    background-color: var(--color-black);
+  }
+
+  &__bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: #{rem(24)};
+    font-size: #{rem(14)};
+  }
+
+  &__policy {
+    text-decoration: underline;
+
+    @include hover {
+      color: var(--color-yellow);
+    }
+  }
+
+  @include tablet {
+    &__main {
+      padding-block: #{rem(150)} #{rem(50)};
+    }
+
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: #{rem(40)};
+    }
+
+    &__brand {
+      grid-column: 1 / -1;
+    }
+
+    &__contacts {
+      margin-block: #{rem(30)} #{rem(28)};
+    }
+  }
+
+  @include mobile {
+    &__container {
+      grid-template-columns: 1fr;
+    }
+
+    &__bottom-container {
+      flex-direction: column;
+      row-gap: #{rem(10)};
+      text-align: center;
+    }
+  }
+}

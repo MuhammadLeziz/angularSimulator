@@ -1,0 +1,121 @@
+@use 'helpers' as *;
+
+.programs {
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 575fr) minmax(0, 510fr);
+    align-items: center;
+    column-gap: #{rem(95)};
+  }
+
+  &__text {
+    margin-block: #{rem(45)};
+  }
+
+  &__list {
+    display: grid;
+    row-gap: #{rem(32)};
+    margin-block-end: #{rem(40)};
+  }
+
+  &__item {
+    display: flex;
+    align-items: start;
+    column-gap: #{rem(20)};
+  }
+
+  &__icon {
+    @include flex-center;
+    @include square(#{rem(48)});
+
+    flex-shrink: 0;
+    border-radius: #{rem(10)};
+
+    svg {
+      @include square(#{rem(26)});
+    }
+
+    &--guide {
+      background-color: #e8f2ec;
+      color: #2f7a5a;
+    }
+
+    &--shield {
+      background-color: #eceef8;
+      color: #2b3a67;
+    }
+
+    &--price {
+      background-color: #fdf3dd;
+      color: var(--color-yellow);
+    }
+  }
+
+  &__item-title {
+    margin-block-end: #{rem(6)};
+    font-size: #{rem(17)};
+    font-weight: 700;
+  }
+
+  &__item-text {
+    font-size: #{rem(14)};
+    line-height: 1.45;
+    color: var(--color-text-muted);
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: #{rem(10)};
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__gallery-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: #{rem(10)};
+
+    &:first-child {
+      border-end-start-radius: #{rem(40)};
+    }
+
+    &:nth-child(2) {
+      border-start-end-radius: #{rem(40)};
+    }
+
+    &:nth-child(3) {
+      border-end-start-radius: #{rem(40)};
+    }
+
+    &:last-child {
+      border-end-end-radius: #{rem(40)};
+    }
+  }
+
+  @include tablet {
+    &__container {
+      grid-template-columns: 1fr;
+      row-gap: #{rem(40)};
+    }
+
+    &__text {
+      margin-block: #{rem(24)} #{rem(32)};
+    }
+
+    &__list {
+      row-gap: #{rem(28)};
+      margin-block-end: #{rem(32)};
+    }
+
+    &__gallery {
+      max-width: #{rem(510)};
+      margin-inline: auto;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<div class="blog__container container">
+  <app-section-head
+    eyebrow="делимся впечатлениями"
+    heading="Блог о путешествиях"
+    [centered]="true"
+  />
+
+  <ul class="blog__list">
+    @for (post of posts; track post.title) {
+      <li class="blog__card" [class.blog__card--active]="post.highlighted">
+        <img
+          class="blog__image"
+          [src]="post.image"
+          [alt]="post.title"
+          width="232"
+          height="280"
+          loading="lazy"
+        />
+
+        <div class="blog__body">
+          <h3 class="blog__title">
+            <a class="blog__link" href="#">{{ post.title }}</a>
+          </h3>
+
+          <p class="blog__excerpt">{{ post.excerpt }}</p>
+
+          <div class="blog__footer">
+            <time class="blog__date" datetime="2023-04-01">{{ post.date }}</time>
+            <a class="blog__more" href="#">читать статью</a>
+          </div>
+        </div>
+      </li>
+    }
+  </ul>
+
+  <a class="blog__button button" href="#gallery">Другие материалы</a>
+</div>

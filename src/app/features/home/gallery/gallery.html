@@ -1,0 +1,13 @@
+<div class="gallery__container container">
+  <app-section-head eyebrow="фото-отчет" heading="Делимся впечатлениями" [centered]="true" />
+
+  <ul class="gallery__list">
+    @for (item of items; track item.image) {
+      <li class="gallery__item" [class.gallery__item--wide]="item.wide">
+        <img [src]="item.image" [alt]="item.alt" width="580" height="250" loading="lazy" />
+      </li>
+    }
+  </ul>
+
+  <a class="gallery__button button" href="#subscribe">Наш pinterest</a>
+</div>

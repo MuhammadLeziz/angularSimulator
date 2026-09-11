@@ -1,0 +1,29 @@
+<div class="header__container container">
+  <a class="header__logo" href="#hero" aria-label="РумТибет — на главную">
+    <img src="/images/logo.png" alt="РумТибет" width="156" height="70" />
+  </a>
+
+  <nav class="header__nav" [class.header__nav--open]="isMenuOpen()">
+    <ul class="header__list">
+      @for (link of navLinks; track link.href) {
+        <li class="header__item">
+          <a class="header__link" [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <a class="header__action button button--light" href="#subscribe">Консультация</a>
+
+  <button
+    class="header__burger"
+    type="button"
+    [attr.aria-expanded]="isMenuOpen()"
+    aria-label="Открыть меню"
+    (click)="toggleMenu()"
+  >
+    <span class="header__burger-line"></span>
+    <span class="header__burger-line"></span>
+    <span class="header__burger-line"></span>
+  </button>
+</div>

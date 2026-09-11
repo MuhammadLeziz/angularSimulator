@@ -1,0 +1,81 @@
+<img
+  class="hero__bg"
+  src="/images/hero.jpg"
+  alt=""
+  width="1920"
+  height="987"
+  fetchpriority="high"
+/>
+
+<div class="hero__container container">
+  <h1 class="hero__title">Насладись прогулкой в горах с командой единомышленников</h1>
+
+  <form class="hero__form">
+    <div class="hero__field">
+      <div class="hero__control hero__control--select">
+        <select class="hero__input" aria-label="Локация для тура">
+          <option value="" selected disabled hidden>Локация для тура</option>
+          @for (location of locations; track location) {
+            <option [value]="location">{{ location }}</option>
+          }
+        </select>
+
+        <svg
+          class="hero__icon"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path d="m3 6 5 5 5-5" stroke-width="1.4" />
+        </svg>
+      </div>
+
+      <p class="hero__hint">выберите из списка</p>
+    </div>
+
+    <div class="hero__field">
+      <div class="hero__control">
+        <input class="hero__input" type="text" placeholder="Дата похода" aria-label="Дата похода" />
+
+        <svg
+          class="hero__icon"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <rect x="1.5" y="3" width="13" height="11.5" rx="1.5" stroke-width="1.2" />
+          <path d="M1.5 6.5h13M5 1.5V4m6-2.5V4" stroke-width="1.2" />
+        </svg>
+      </div>
+
+      <p class="hero__hint">укажите дату</p>
+    </div>
+
+    <div class="hero__field">
+      <div class="hero__control hero__control--select">
+        <select class="hero__input" aria-label="Участники">
+          <option value="" selected disabled hidden>Участники</option>
+          @for (participant of participants; track participant) {
+            <option [value]="participant">{{ participant }}</option>
+          }
+        </select>
+
+        <svg
+          class="hero__icon"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path d="m3 6 5 5 5-5" stroke-width="1.4" />
+        </svg>
+      </div>
+
+      <p class="hero__hint">выберите из списка</p>
+    </div>
+
+    <button class="hero__submit button" type="submit">Найти программу</button>
+  </form>
+</div>

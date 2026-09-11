@@ -1,0 +1,134 @@
+@use 'helpers' as *;
+
+:host {
+  position: relative;
+  display: flex;
+  align-items: end;
+  min-height: #{rem(987)};
+  padding-block: var(--header-height) #{rem(82)};
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.hero {
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    @include fluid-text(48, 24);
+
+    max-width: #{rem(1000)};
+    margin-bottom: #{rem(34)};
+    font-weight: 300;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: #{rem(0.5)};
+  }
+
+  &__form {
+    display: flex;
+    align-items: start;
+    column-gap: #{rem(20)};
+    padding: #{rem(45)};
+    border-radius: var(--border-radius-big);
+    background-color: rgb(24 18 30 / 35%);
+    backdrop-filter: blur(#{rem(6)});
+  }
+
+  &__field {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  &__control {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    height: #{rem(45)};
+    padding-inline: #{rem(20)} #{rem(46)};
+    border: #{rem(1)} solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    color: var(--color-white);
+    font-size: #{rem(17)};
+    appearance: none;
+    cursor: pointer;
+
+    &::placeholder {
+      color: var(--color-white);
+      opacity: 1;
+    }
+
+    option {
+      color: var(--color-black);
+    }
+
+    @include hover {
+      border-color: var(--color-white);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    inset-inline-end: #{rem(18)};
+    width: #{rem(16)};
+    height: #{rem(16)};
+    pointer-events: none;
+  }
+
+  &__hint {
+    margin-block-start: #{rem(10)};
+    font-size: #{rem(13)};
+    color: rgb(253 253 253 / 75%);
+  }
+
+  &__submit {
+    flex-shrink: 0;
+    width: #{rem(210)};
+    min-height: #{rem(45)};
+    padding-inline: #{rem(16)};
+  }
+
+  @include tablet {
+    &__form {
+      flex-wrap: wrap;
+      row-gap: #{rem(20)};
+      padding: #{rem(28)};
+    }
+
+    &__field {
+      flex-basis: calc(50% - #{rem(10)});
+    }
+
+    &__submit {
+      width: 100%;
+    }
+  }
+
+  @include mobile {
+    &__field {
+      flex-basis: 100%;
+    }
+  }
+}
+
+:host {
+  @include tablet {
+    min-height: #{rem(760)};
+    padding-block-end: #{rem(50)};
+  }
+
+  @include mobile {
+    min-height: #{rem(640)};
+  }
+}

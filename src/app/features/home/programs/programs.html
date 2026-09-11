@@ -1,0 +1,64 @@
+<div class="programs__container container">
+  <div class="programs__content">
+    <app-section-head eyebrow="наше предложение" heading="Лучшие программы для тебя" />
+
+    <p class="programs__text text">
+      Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+      тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.
+    </p>
+
+    <ul class="programs__list">
+      @for (advantage of advantages; track advantage.icon) {
+        <li class="programs__item">
+          <span class="programs__icon" [class]="'programs__icon--' + advantage.icon">
+            @switch (advantage.icon) {
+              @case ('guide') {
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <circle cx="12" cy="5" r="2.4" />
+                  <path
+                    d="M9 9.6h6a1.6 1.6 0 0 1 1.6 1.6V16H14v5h-4v-5H7.4v-4.8A1.6 1.6 0 0 1 9 9.6Z"
+                  />
+                  <circle cx="4.6" cy="7.4" r="1.8" />
+                  <path d="M2.4 11h4.4v9H2.4z" />
+                  <circle cx="19.4" cy="7.4" r="1.8" />
+                  <path d="M17.2 11h4.4v9h-4.4z" />
+                </svg>
+              }
+              @case ('shield') {
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 2 3.5 5.4v6.1c0 5 3.6 9.2 8.5 10.5 4.9-1.3 8.5-5.5 8.5-10.5V5.4L12 2Z"
+                  />
+                </svg>
+              }
+              @default {
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M6.5 2h11a1.5 1.5 0 0 1 1.5 1.5V17a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5V3.5A1.5 1.5 0 0 1 6.5 2Z"
+                  />
+                  <circle cx="12" cy="6.5" r="1.6" fill="#fff" />
+                  <path d="M11 9h2v5h-2z" fill="#fff" />
+                </svg>
+              }
+            }
+          </span>
+
+          <div class="programs__item-body">
+            <h3 class="programs__item-title">{{ advantage.title }}</h3>
+            <p class="programs__item-text">{{ advantage.text }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+
+    <a class="programs__button button" href="#popular">Стоимость программ</a>
+  </div>
+
+  <ul class="programs__gallery">
+    @for (image of gallery; track image.src) {
+      <li class="programs__gallery-item">
+        <img [src]="image.src" [alt]="image.alt" width="250" height="250" loading="lazy" />
+      </li>
+    }
+  </ul>
+</div>

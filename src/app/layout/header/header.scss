@@ -1,0 +1,104 @@
+@use 'helpers' as *;
+
+:host {
+  position: absolute;
+  z-index: 10;
+  inset-block-start: 0;
+  inset-inline: 0;
+  min-height: var(--header-height);
+  background-color: rgb(24 18 30 / 50%);
+  backdrop-filter: blur(#{rem(4)});
+  color: var(--color-white);
+}
+
+.header {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: #{rem(24)};
+    min-height: var(--header-height);
+  }
+
+  &__logo {
+    flex-shrink: 0;
+
+    img {
+      width: #{rem(156)};
+      height: auto;
+    }
+
+    @include mobile {
+      img {
+        width: #{rem(110)};
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: #{rem(27)};
+  }
+
+  &__link {
+    font-size: #{rem(18)};
+    white-space: nowrap;
+
+    @include hover {
+      color: var(--color-yellow);
+    }
+  }
+
+  &__action {
+    flex-shrink: 0;
+    min-height: #{rem(47)};
+    padding-inline: #{rem(28)};
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    row-gap: #{rem(5)};
+    padding: #{rem(8)};
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__burger-line {
+    width: #{rem(24)};
+    height: #{rem(2)};
+    background-color: currentcolor;
+  }
+
+  @include tablet {
+    &__nav {
+      @include hide;
+
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline: 0;
+      padding-block: #{rem(24)};
+      background-color: var(--color-green);
+
+      &--open {
+        @include show;
+      }
+    }
+
+    &__list {
+      flex-direction: column;
+      row-gap: #{rem(16)};
+    }
+
+    &__burger {
+      display: flex;
+    }
+  }
+
+  @include mobile {
+    &__action {
+      display: none;
+    }
+  }
+}

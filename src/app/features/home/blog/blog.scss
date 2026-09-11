@@ -1,0 +1,115 @@
+@use 'helpers' as *;
+
+.blog {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: #{rem(20)};
+    width: 100%;
+    margin-block: #{rem(50)} #{rem(48)};
+  }
+
+  &__card {
+    display: flex;
+    column-gap: #{rem(24)};
+    min-height: #{rem(310)};
+    padding: #{rem(15)};
+    border-radius: var(--border-radius-big);
+    background-color: var(--color-white-alt);
+    box-shadow: 0 #{rem(2)} #{rem(14)} rgb(24 18 30 / 6%);
+  }
+
+  &__image {
+    flex-shrink: 0;
+    width: #{rem(232)};
+    height: #{rem(280)};
+    border-radius: #{rem(8)};
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-block: #{rem(14)};
+  }
+
+  &__title {
+    font-size: #{rem(24)};
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  &__link {
+    @include hover {
+      color: var(--color-green);
+      text-decoration: underline;
+    }
+  }
+
+  &__excerpt {
+    margin-block-start: #{rem(18)};
+    font-size: #{rem(14)};
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: #{rem(16)};
+    margin-block-start: auto;
+    padding-block-start: #{rem(20)};
+    font-size: #{rem(14)};
+  }
+
+  &__date {
+    color: var(--color-yellow);
+  }
+
+  &__more {
+    font-weight: 600;
+
+    @include hover {
+      color: var(--color-green);
+    }
+  }
+
+  &__card--active {
+    .blog__link {
+      color: var(--color-green);
+      text-decoration: underline;
+    }
+  }
+
+  @include tablet {
+    &__list {
+      grid-template-columns: 1fr;
+      margin-block: #{rem(32)};
+    }
+  }
+
+  @include mobile {
+    &__card {
+      flex-direction: column;
+      row-gap: #{rem(16)};
+    }
+
+    &__image {
+      width: 100%;
+      height: #{rem(220)};
+    }
+
+    &__body {
+      padding-block: 0;
+    }
+  }
+}

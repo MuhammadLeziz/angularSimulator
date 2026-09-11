@@ -1,0 +1,15 @@
+@use 'helpers' as *;
+
+:host {
+  display: block;
+}
+
+:host(.section-head--center) {
+  text-align: center;
+}
+
+.section-head {
+  &__eyebrow {
+    margin-bottom: #{rem(4)};
+  }
+}
